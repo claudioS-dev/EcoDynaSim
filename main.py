@@ -1,0 +1,27 @@
+from metodos.metodo_euler import metodo_euler_mejorado
+from simulaciones.simulacion_conejos import SimulacionConRabbits
+from metodos.metodo_taylor import metodo_taylor
+
+r = 0.15  # Tasa de crecimiento
+K = 200  # Capacidad de carga
+derivada = lambda t, P: r * P * (1 - P / K)  # Ecuación diferencial
+df_dP = lambda P: 0.15 - 0.0015*P  # Derivada precalculada de f respecto a P
+
+# Configuración inicial
+x_inicial, y_inicial, x_final, paso = 0, 1, 120, 0.1
+# Comentar según el método a utilizar para la simulación:
+#x_valores, y_aprox = metodo_euler_mejorado(derivada, x_inicial, y_inicial, x_final, paso)
+x_valores, y_aprox = metodo_taylor(derivada, df_dP, x_inicial, y_inicial, x_final, paso)
+
+# Preparar datos para la simulación
+rabbits_time = []  # Ejemplo: 0 a 60 segundos
+quantity_rabbits = []  # Ejemplo: cantidad de conejos doble al tiempo
+
+x_and_y_values = dict(zip(x_valores, y_aprox))
+for i in range(61):
+    rabbits_time.append(i)
+    quantity_rabbits.append(round(x_and_y_values[i]))
+
+# Iniciar simulación
+simulacion = SimulacionConRabbits()
+simulacion.run(rabbits_time, quantity_rabbits)
