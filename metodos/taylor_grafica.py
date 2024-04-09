@@ -2,13 +2,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 from metodo_taylor import metodo_taylor
 
-# Función que representa la ecuación diferencial de primer orden f(x, y)
 r = 0.15  # Tasa de crecimiento
 K = 200  # Capacidad de carga
 derivada = lambda t, P: r * P * (1 - P / K)  # Ecuación diferencial
 df_dP = lambda P: 0.15 - 0.0015*P  # Derivada precalculada de f respecto a P
 
-# Parámetros para la solución
+# Valores iniciales y configuración
 x_inicial = 0
 y_inicial = 2
 x_final = 120

@@ -9,14 +9,16 @@ df_dP = lambda P: 0.15 - 0.0015*P  # Derivada precalculada de f respecto a P
 
 # Configuración inicial
 x_inicial, y_inicial, x_final, paso = 0, 1, 120, 0.1
+
 # Comentar según el método a utilizar para la simulación:
 #x_valores, y_aprox = metodo_euler_mejorado(derivada, x_inicial, y_inicial, x_final, paso)
 x_valores, y_aprox = metodo_taylor(derivada, df_dP, x_inicial, y_inicial, x_final, paso)
 
-# Preparar datos para la simulación
-rabbits_time = []  # Ejemplo: 0 a 60 segundos
-quantity_rabbits = []  # Ejemplo: cantidad de conejos doble al tiempo
+#Datos para la simulación
+rabbits_time = []  
+quantity_rabbits = []  
 
+#Extracción de datos
 x_and_y_values = dict(zip(x_valores, y_aprox))
 for i in range(61):
     rabbits_time.append(i)
