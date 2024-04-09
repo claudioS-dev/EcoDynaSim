@@ -8,12 +8,12 @@ K = 200  # Capacidad de carga
 dP_dt = lambda t, P: r*P * (1 - P /K)  
 
 # Valores iniciales y configuración
-x_inicial = 0    # Valor inicial de 'x'
-y_inicial = 2    # Valor inicial de 'y'
-x_final = 120    # Valor final de 'x'
-paso = 0.1       # Tamaño de paso
+x_inicial = 0     
+y_inicial = 2    
+x_final = 120    
+paso = 0.1       
 
-# Utiliza la función importada para calcular la solución aproximada
+#Obtención de puntos (x,y)
 x_valores, y_aprox = metodo_euler_mejorado(dP_dt, x_inicial, y_inicial, x_final, paso)
 
 # Grafica la solución aproximada
