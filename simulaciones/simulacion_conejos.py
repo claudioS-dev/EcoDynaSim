@@ -30,7 +30,6 @@ class SimulacionConRabbits:
             y = random.randrange(self.rabbit_margin, self.screen_height - self.rabbit_margin - 60)  # 60 es el alto del conejo
             image = self.shiny_rabbit_image if random.random() < 0.1 else self.rabbit_image
             self.rabbits.append((image.get_rect(topleft=(x, y)), image))
-
     def move_rabbits(self):
         for rabbit_rect, _ in self.rabbits:
             # Mueve el conejo dentro de los límites de la pantalla, considerando el margen
