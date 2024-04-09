@@ -1,5 +1,5 @@
 from metodos.metodo_euler import metodo_euler_mejorado
-from simulaciones.simulacion_conejos import SimulacionConRabbits
+from simulacion.simulacion_conejos import SimulacionConRabbits
 from metodos.metodo_taylor import metodo_taylor
 
 r = 0.15  # Tasa de crecimiento
