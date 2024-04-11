@@ -5,7 +5,7 @@ import sys
 class SimulacionConRabbits:
     def __init__(self):
         pygame.init()
-        self.screen_width, self.screen_height = 800, 600
+        self.screen_width, self.screen_height = 1280, 720
         self.bg_color = (255, 255, 255)
         self.font_color = (0, 0, 0)
         self.screen = pygame.display.set_mode((self.screen_width, self.screen_height))

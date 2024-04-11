@@ -1,21 +1,33 @@
 import numpy as np
-def metodo_taylor(derivada, df_dP, x_inicial, y_inicial, x_final, paso):
+import sympy as sp
+
+def metodo_taylor(funcion, x_inicial, y_inicial, x_final, paso):
     """    
     Parámetros:
-    - derivada: la función derivada f(x, y) de la EDO.
-    - df_dP: derivada de f respecto a P (precalculada).
-    - x_inicial, y_inicial: condiciones iniciales.
-    - x_final: valor final de 'x'.
-    - paso: tamaño de paso para la aproximación.
+    - func: la función derivada f(x, y).
+    - x_inicial: el valor inicial de x.
+    - y_inicial: el valor inicial de y.
+    - x_final: el valor final de x.
+    - paso: el tamaño del paso para la integración.
     
     Retorna:
-    - x_valores: array de valores de 'x'.
-    - y_valores: array de valores aproximados de 'y'.
+    - x_valores: un array de los valores de x.
+    - y_aprox: un array de los valores aproximados de y.
     """
+    # Definir las variables simbólicas
+    x, y = sp.symbols('x y')
+    
+    # Convertir la función dada a una expresión de SymPy
+    f = sp.lambdify((x, y), funcion(x, y), 'numpy')
+    
+    # Calcular la derivada de f con respecto a y usando SymPy
+    df_dy = sp.diff(funcion(x, y), y)
+    df_dy_lambdified = sp.lambdify((x, y), df_dy, 'numpy')
+    
     # Número de pasos
     n_steps = int((x_final - x_inicial) / paso)
     
-    # Inicializando arrays para valores de x y y
+    # Inicializar arrays para valores de x y y
     x_valores = np.linspace(x_inicial, x_final, n_steps + 1)
     y_valores = np.zeros(n_steps + 1)
     y_valores[0] = y_inicial
@@ -23,11 +35,11 @@ def metodo_taylor(derivada, df_dP, x_inicial, y_inicial, x_final, paso):
     # Bucle para calcular y_valores
     for i in range(n_steps):
         x_n, y_n = x_valores[i], y_valores[i]
-        f_val = derivada(x_n, y_n)
-        df_dP_val = df_dP(y_n)
+        f_val = f(x_n, y_n)
+        df_dy_val = df_dy_lambdified(x_n, y_n)
         
         # Método de Taylor de segundo orden
-        y_next = y_n + paso * f_val + (paso**2 / 2) * df_dP_val * f_val
+        y_next = y_n + paso * f_val + (paso**2 / 2) * df_dy_val * f_val
         y_valores[i + 1] = y_next
     
     return x_valores, y_valores

@@ -8,7 +8,6 @@ K = 200  # Capacidad de carga
 
 modelo_logistico = lambda t, P_0: K / (1 + ((K - P_0) / P_0) * np.exp(-r * t)) # Función integrada por métodos tradicionales.
 derivada = lambda t, P: r * P * (1 - P / K)  # Ecuación diferencial
-df_dP = lambda P: 0.15 - 0.0015*P  # Derivada precalculada de f respecto a P
 
 # Parámetros para la solución
 x_inicial = 0
@@ -16,7 +15,7 @@ y_inicial = 2
 x_final = 120
 paso = 0.1
 
-x_valores_taylor, y_aprox_taylor = metodo_taylor(derivada, df_dP, x_inicial, y_inicial, x_final, paso)
+x_valores_taylor, y_aprox_taylor = metodo_taylor(derivada, x_inicial, y_inicial, x_final, paso)
 x_valores_euler, y_aprox_euler = metodo_euler_mejorado(derivada, x_inicial, y_inicial, x_final, paso)
 
 x_valores_exactos = np.arange(x_inicial, x_final + paso, paso)
