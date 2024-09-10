@@ -1,25 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eevee Simulation Game</title>
-    <style>
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #f0f0f0;
-      }
-      #gameCanvas {
-        border: 1px solid #000;
-      }
-    </style>
+    <title>EcoDynaSim: Modelando la Naturaleza con Ecuaciones</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   </head>
   <body>
-    <canvas id="gameCanvas" width="1280" height="720"></canvas>
-    <script src="game.js"></script>
+    <div class="landing">
+      <h1>EcoDynaSim: Modelando la Naturaleza con Ecuaciones</h1>
+      <p>
+        Descubre el poder de las ecuaciones diferenciales para simular y
+        comprender los fenómenos dinámicos del mundo real.
+      </p>
+      <a href="#simulation" class="btn">Explorar la Simulación</a>
+    </div>
+
+    <div class="introduction">
+      <h2>El Poder de las Ecuaciones Diferenciales en la Ingeniería</h2>
+      <p>
+        Las ecuaciones diferenciales son una herramienta fundamental en la
+        ingeniería y las ciencias aplicadas. Nos permiten modelar y predecir el
+        comportamiento de sistemas dinámicos complejos, desde el flujo de
+        fluidos hasta el crecimiento poblacional, pasando por circuitos
+        eléctricos y reacciones químicas.
+      </p>
+      <p>
+        En EcoDynaSim, exploramos cómo estas poderosas herramientas matemáticas
+        pueden ayudarnos a comprender y visualizar fenómenos naturales complejos
+        de una manera intuitiva y educativa.
+      </p>
+    </div>
+
+    <div class="applications">
+      <h2>Modelado con Ecuaciones Diferenciales</h2>
+      <p>
+        Las ecuaciones diferenciales son la columna vertebral de numerosos
+        modelos en ingeniería y ciencias. Algunos ejemplos fascinantes incluyen:
+      </p>
+      <ul>
+        <li>
+          <strong>Dinámica de Fluidos:</strong> Modelado del flujo sanguíneo en
+          el cuerpo humano o el diseño aerodinámico de vehículos.
+        </li>
+        <li>
+          <strong>Ingeniería Eléctrica:</strong> Análisis de circuitos RLC y
+          sistemas de control.
+        </li>
+        <li>
+          <strong>Ingeniería Química:</strong> Modelado de reacciones químicas y
+          procesos de difusión.
+        </li>
+        <li>
+          <strong>Ingeniería Mecánica:</strong> Estudio de vibraciones y
+          sistemas de amortiguación.
+        </li>
+        <li>
+          <strong>Ecología:</strong> Modelado de poblaciones y ecosistemas, como
+          veremos en nuestra simulación Lotka-Volterra.
+        </li>
+      </ul>
+    </div>
+
+    <div class="academic">
+      <h2>El Modelo Lotka-Volterra: Un Prototipo de Simulación Dinámica</h2>
+      <p>
+        Como ejemplo práctico de la aplicación de ecuaciones diferenciales,
+        exploraremos el modelo Lotka-Volterra, también conocido como las
+        ecuaciones depredador-presa. Este modelo ilustra cómo podemos usar
+        matemáticas simples para describir fenómenos naturales complejos.
+      </p>
+      <div class="equations">
+        <div class="equation-block">
+          <p>Tasa de cambio de la población de presas:</p>
+          <p>\[\frac{dH}{dt} = \alpha H - \beta HF\]</p>
+        </div>
+        <div class="equation-block">
+          <p>Tasa de cambio de la población de depredadores:</p>
+          <p>\[\frac{dF}{dt} = \delta HF - \gamma F\]</p>
+        </div>
+      </div>
+      <p>Donde:</p>
+      <ul>
+        <li>H: Número de presas</li>
+        <li>F: Número de depredadores</li>
+        <li>α: Tasa de crecimiento de las presas</li>
+        <li>β: Tasa de depredación</li>
+        <li>δ: Eficiencia de conversión de presas en nuevos depredadores</li>
+        <li>γ: Tasa de mortalidad de los depredadores</li>
+      </ul>
+    </div>
+
+    <div id="simulation" class="simulation">
+      <h2>Simulación Interactiva</h2>
+      <p>
+        Experimenta con nuestra simulación interactiva para ver cómo los cambios
+        en los parámetros afectan la dinámica del sistema depredador-presa.
+      </p>
+      <div class="simulation-controls">
+        <div class="controls">
+          <div id="parameterInputs"></div>
+        </div>
+        <div class="simulation-container">
+          <div class="canvas-container">
+            <canvas id="gameCanvas"></canvas>
+            <canvas id="populationChart"></canvas>
+          </div>
+          <button id="toggleView" class="toggle-btn">Cambiar Vista</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="industry-applications">
+      <h2>Aplicaciones en la Industria</h2>
+      <p>
+        El enfoque de modelado que utilizamos en EcoDynaSim tiene aplicaciones
+        directas en diversos sectores industriales:
+      </p>
+      <ul>
+        <li>
+          <strong>Gestión de Recursos Naturales:</strong> Optimización de la
+          pesca comercial y manejo forestal sostenible.
+        </li>
+        <li>
+          <strong>Agricultura de Precisión:</strong> Modelado de crecimiento de
+          cultivos y control de plagas.
+        </li>
+        <li>
+          <strong>Industria Farmacéutica:</strong> Desarrollo de modelos
+          farmacocinéticos y farmacodinámicos para el diseño de medicamentos.
+        </li>
+        <li>
+          <strong>Energías Renovables:</strong> Optimización de parques eólicos
+          y predicción de producción energética.
+        </li>
+        <li>
+          <strong>Logística y Cadena de Suministro:</strong> Modelado de
+          inventarios y optimización de rutas de distribución.
+        </li>
+      </ul>
+    </div>
+
+    <div class="conclusion">
+      <h2>Un Mundo de Posibilidades</h2>
+      <p>
+        EcoDynaSim demuestra cómo las ecuaciones diferenciales pueden
+        transformar conceptos abstractos en herramientas poderosas para la
+        comprensión y predicción de fenómenos complejos. Aunque nos hemos
+        centrado en el modelo Lotka-Volterra como prototipo, las posibilidades
+        son virtualmente infinitas.
+      </p>
+      <p>
+        Desde la optimización de procesos industriales hasta la predicción de
+        tendencias económicas, el modelado matemático nos permite simular,
+        analizar y mejorar sistemas en casi todos los campos de la ingeniería y
+        la ciencia. Al integrar estas herramientas en la educación, estamos
+        preparando a la próxima generación de ingenieros para abordar los
+        desafíos más complejos de nuestro tiempo con creatividad y rigor
+        analítico.
+      </p>
+      <p>
+        EcoDynaSim no es solo una herramienta educativa; es una puerta de
+        entrada a un mundo donde las matemáticas cobran vida, inspirando a
+        futuros ingenieros a ver el mundo a través de la lente de las ecuaciones
+        diferenciales y descubrir soluciones innovadoras para los problemas del
+        mañana.
+      </p>
+    </div>
+
+    <script src="simulation.js"></script>
   </body>
 </html>
