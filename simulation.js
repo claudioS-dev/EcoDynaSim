@@ -149,27 +149,27 @@ function setupParameterInputs() {
   const parameterInputs = [
     {
       id: "preyGrowthRate",
-      label: "Tasa de crecimiento de liebres",
+      label: "Tasa de crecimiento de liebres por mes.",
       default: PREY_GROWTH_RATE,
     },
     {
       id: "predationRate",
-      label: "Tasa de depredación",
+      label: "Tasa de depredación por mes",
       default: PREDATION_RATE,
     },
     {
       id: "predatorDeathRate",
-      label: "Tasa de muerte de zorros",
+      label: "Tasa de muerte de zorros por mes",
       default: PREDATOR_DEATH_RATE,
     },
     {
       id: "predatorGrowthRate",
-      label: "Tasa de crecimiento de zorros",
+      label: "Tasa de crecimiento de zorros por mes",
       default: PREDATOR_GROWTH_RATE,
     },
     {
       id: "carryingCapacity",
-      label: "Capacidad de carga",
+      label: "Capacidad de carga (Máximo de Liebres)",
       default: CARRYING_CAPACITY,
     },
     {
