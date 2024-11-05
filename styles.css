@@ -230,8 +230,7 @@ button:hover {
 .toggle-btn {
   margin-top: 1rem;
 }
-
-/* Estilos responsivos */
+/* Estilos responsivos actualizados */
 @media (max-width: 768px) {
   .landing h1 {
     font-size: 2.5rem;
@@ -251,53 +250,75 @@ button:hover {
   .industry-applications,
   .conclusion,
   .simulation {
-    padding: 3rem 1.5rem;
+    padding: 2rem 1rem;
+    margin: 1rem;
   }
 
   .simulation-controls {
     flex-direction: column;
     align-items: center;
+    gap: 2rem;
   }
 
   .controls,
   .simulation-container {
-    min-width: 100%;
+    min-width: auto;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .canvas-container {
+    height: 300px; /* Altura reducida para mobile */
+    margin: 0;
+    padding: 0 1rem;
+  }
+
+  #gameCanvas,
+  #populationChart {
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+  }
+
+  /* Ajustes adicionales para controles en mobile */
+  .controls {
+    padding: 0 1rem;
+  }
+
+  input[type="number"] {
+    font-size: 16px; /* Mejor tamaño para inputs en mobile */
+    padding: 8px;
+  }
+
+  button {
+    width: 100%;
+    margin: 0.5rem 0;
+    padding: 12px;
+    font-size: 16px;
   }
 }
 
-/* Efectos de hover para elementos interactivos */
-.applications li:hover,
-.industry-applications li:hover {
-  transform: translateX(5px);
-  transition: transform 0.3s ease;
-}
-
-/* Estilo para destacar información importante */
-.highlight {
-  background-color: #f1c40f;
-  color: #2c3e50;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  font-weight: bold;
-}
-
-/* Animación sutil para los títulos de sección */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* Media query adicional para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .canvas-container {
+    height: 250px; /* Aún más reducido para pantallas muy pequeñas */
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .equations {
+    padding: 1rem;
+    overflow-x: auto; /* Permite scroll horizontal para ecuaciones */
   }
 }
 
-.introduction h2,
-.applications h2,
-.academic h2,
-.industry-applications h2,
-.conclusion h2,
-.simulation h2 {
-  animation: fadeIn 1s ease-out;
+/* Asegura que no haya scroll horizontal en el body */
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
